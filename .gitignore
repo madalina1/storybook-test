@@ -1,0 +1,39 @@
+# OS X
+.DS_Store*
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+*~
+
+# Build/Test/Dependencies
+coverage
+node_modules
+dist
+
+# Dev env files
+*.log*
+*.sublime-project
+*.sublime-workspace
+.idea
+.vscode
+.env
+.npmrc
+
+.nyc_output/
+.vscode/settings.json
+bin/run-storyshots/tests/*.test.js
+coverage/
+lib/
+node_modules/
+.cache
+.eslintcache
+*.log
+.DS_Store
+.stylelintcache
