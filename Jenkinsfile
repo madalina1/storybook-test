@@ -25,5 +25,20 @@ pipeline {
                 '''
             }
         }
+
+        stage('Build storybook') { 
+            steps {
+                sh '''
+                    npm run build-storybook
+                '''
+
+                 sh '''
+                    git add -A && git commit -m \"build storybook\"
+                '''
+
+                
+                sh 'git push origin main'
+            }
+        }
     }
 }
