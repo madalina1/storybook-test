@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    if: github.repository == 'madalina1/storybook-test'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Creating .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            email=ioanainsuratelu@yahoo.com
+            //npm.pkg.github.com/:_authToken=$NPM_TOKEN
+            # @madalina1:registry=https://npm.pkg.github.com
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build storybook
+        run: |
+          npm run build-storybook
+          git add -A && git commit -m "build storybook"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Push to main
+        run: git push origin main
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
