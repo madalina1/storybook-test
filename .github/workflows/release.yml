@@ -37,6 +37,8 @@ jobs:
       - name: Build storybook
         run: |
           npm run build-storybook
+          git config user.name "madalina1"
+          git config user.email "ioanainsuratelu@yahoo.com"
           git add -A && git commit -m "build storybook"
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
