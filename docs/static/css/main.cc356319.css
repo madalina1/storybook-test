@@ -8,8 +8,8 @@
   line-height: 1;
 }
 .storybook-button--primary {
-  color: white;
-  background-color: #1ea7fd;
+  color: rgb(179, 170, 170);
+  background-color: #e04313;
 }
 .storybook-button--secondary {
   color: #333;
@@ -133,4 +133,4 @@ section .tip-wrapper svg path {
 }
 
 
-/*# sourceMappingURL=main.f670686b.css.map*/
+/*# sourceMappingURL=main.cc356319.css.map*/
